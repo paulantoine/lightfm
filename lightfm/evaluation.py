@@ -240,7 +240,7 @@ def average_precision_at_k(
 
         res += precision_at_i * relevant_at_i
 
-    res = res / np.minimum(np.maximum(train_interactions.getnnz(axis=1), 1), k)
+    res = res / np.minimum(np.maximum(test_interactions.getnnz(axis=1), 1), k)
 
     if not preserve_rows:
         res = res[test_interactions.getnnz(axis=1) > 0]
